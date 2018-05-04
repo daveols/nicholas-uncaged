@@ -11,9 +11,11 @@ def test_button(driver):
     WAIT_SEC = 10
     driver.implicitly_wait(WAIT_SEC)
 
+    quote = driver.find_element_by_accessibility_id('quote')
     btn = driver.find_element_by_accessibility_id('button')
     btn.click()
+    assert quote != driver.find_element_by_accessibility_id('quote')
+    quote = driver.find_element_by_accessibility_id('quote')
     btn.click()
-
-    counter = driver.find_element_by_accessibility_id('counter')
-    assert counter.text == '2'
+    assert quote != driver.find_element_by_accessibility_id('quote')
+    btn.click()
