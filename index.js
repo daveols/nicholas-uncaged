@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import E2ETest from './src/index';
+import App from './App';
 
-AppRegistry.registerComponent('e2etest', () => E2ETest);
+AppRegistry.registerComponent('appiumPythonAwsTutorial', () => App);

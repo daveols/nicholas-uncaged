@@ -1,4 +1,4 @@
-package com.e2etest;
+package com.appiumpythonawstutorial;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package com.e2etest;
+package com.appiumpythonawstutorial;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "e2etest";
+        return "appiumPythonAwsTutorial";
     }
 }

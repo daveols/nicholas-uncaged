@@ -16,11 +16,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
 
-@interface e2etestTests : XCTestCase
+@interface appiumPythonAwsTutorialTests : XCTestCase
 
 @end
 
-@implementation e2etestTests
+@implementation appiumPythonAwsTutorialTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {
