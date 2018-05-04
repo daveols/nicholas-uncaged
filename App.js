@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   },
   quote: {
     padding: 20,
-    fontWeight: 'bold'
+    fontSize: 16,
+    textAlign: 'center'
   }
 });
