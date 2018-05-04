@@ -10,7 +10,7 @@ def get_desired_capabilities(location=AWS):
     if location == LOCAL:
         return {
             'app': os.path.expanduser(
-                './android/app/build/outputs/apk/app-debug.apk'),
+                './android/app/build/outputs/apk/debug/app-debug.apk'),
             'platformName': 'Android',
             'deviceName': 'Android Emulator'
         }
