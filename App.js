@@ -1,47 +1,55 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  Image
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const Cages = [
+  {
+    image: 'https://39m9vk1z5i3x15rspj43y7k8-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/Nicolas-Cage-1300x813.jpg',
+    quote: 'Did I ever tell ya that this here jacket represents a symbol of my individuality, and my belief in personal freedom?'
+  },
+  {
+    image: 'https://i.kinja-img.com/gawker-media/image/upload/s--y0OM6BOQ--/c_scale,f_auto,fl_progressive,q_80,w_800/iwpzjy3ggdpapoagr8av.jpg',
+    quote: 'Tool up, honey bunny. It\'s time to get bad guys.'
+  },
+  {
+    image: 'https://i.pinimg.com/originals/af/a9/3e/afa93eed58d0e4d014b9e9ef5a11a0fe.png',
+    quote: 'I love pressure. I eat it for breakfast.'
+  }
+]
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   state = {
-    counter: 0
+    index: 0
   }
 
-  onPress = () => this.setState({ counter: this.state.counter + 1 })
+  onNext = () => {
+    let randomIndex
+    while (Cages.length !== 0) {
+      randomIndex = Math.floor(Math.random() * Cages.length)
+      if (randomIndex !== this.state.index) {
+        break
+      }
+    }
+    this.setState({ index: randomIndex })
+  }
 
   render() {
+    const cage = Cages[this.state.index]
+    const image = cage.image
+    const quote = cage.quote
+    const formattedQuote = `\"${quote}\" - Nicholas Cage`
+
     return (
       <View style={styles.container} accessibilityLabel="testview">
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-
-        <Text accessibilityLabel="counter">{this.state.counter}</Text>
-        <Button onPress={this.onPress} title="Press me" accessibilityLabel="button" />
+        <Image style={{ height: 400, width: 400 }} source={{ uri: image }} />
+        <Text style={styles.quote} accessibilityLabel="quote">{formattedQuote}</Text>
+        <Button onPress={this.onNext} title="More wisdom" accessibilityLabel="button" />
       </View>
     );
   }
@@ -54,14 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  quote: {
+    padding: 20,
+    fontWeight: 'bold'
+  }
 });
